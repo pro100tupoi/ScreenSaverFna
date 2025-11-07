@@ -1,4 +1,4 @@
-﻿namespace screenSaver.Classes
+﻿namespace ScreenSaverFNA.Classes
 {
     /// <summary>
     /// Снежинка

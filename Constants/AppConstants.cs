@@ -8,32 +8,32 @@
         /// <summary>
         /// Минимальное количество снежинок на экране
         /// </summary>
-        public static readonly int MinSnowflakeCount = 500;
+        public const int MinSnowflakeCount = 500;
 
         /// <summary>
         /// Максимальное количество снежинок на экране
         /// </summary>
-        public static readonly int MaxSnowflakeCount = 800;
+        public const int MaxSnowflakeCount = 800;
 
         /// <summary>
         /// Минимальный масштаб снежинки
         /// </summary>
-        public static readonly double MinSnowflakeScale = 0.01;
+        public const double MinSnowflakeScale = 0.01;
 
         /// <summary>
         /// Максимальный масштаб снежинки
         /// </summary>
-        public static readonly double MaxSnowflakeScale = 0.03; // 0.01 + 0.02
+        public const double MaxSnowflakeScale = 0.03; // 0.01 + 0.02
 
         /// <summary>
         /// Минимальная базовая скорость падения снежинки
         /// </summary>
-        public static readonly double MinBaseSpeed = 0.15;
+        public const double MinBaseSpeed = 0.15;
 
         /// <summary>
         /// Максимальная базовая скорость падения снежинки
         /// </summary>
-        public static readonly double MaxBaseSpeed = 7.85; // 0.15 + 7.7
+        public const double MaxBaseSpeed = 7.85; // 0.15 + 7.7
 
         /// <summary>
         /// Базовый множитель скорости в зависимости от масштаба
@@ -58,7 +58,7 @@
         /// <summary>
         /// Целевой FPS для нормализации скорости анимации
         /// </summary>
-        public const float TargetFPS = 60f; // используется для нормализации скорости
+        public const float TargetFps = 60f; // используется для нормализации скорости
 
         /// <summary>
         /// Префикс имени ресурса для изображений снежинок

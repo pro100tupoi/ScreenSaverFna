@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using screenSaver.Classes;
+using ScreenSaverFNA.Classes;
 using ScreenSaverFNA.Constants;
 
 namespace ScreenSaverFNA
@@ -9,7 +9,7 @@ namespace ScreenSaverFNA
     /// <summary>
     /// Основной класс игры - скринсейвер со снегопадом
     /// </summary>
-    public class SnowSaverGame : Microsoft.Xna.Framework.Game
+    public class SnowSaverGame : Game
     {
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
@@ -25,8 +25,11 @@ namespace ScreenSaverFNA
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            graphics.IsFullScreen = true;
+            Window.IsBorderlessEXT = true;
+
             IsMouseVisible = false;
-            Window.AllowUserResizing = true;
         }
 
         protected override void LoadContent()
@@ -84,7 +87,7 @@ namespace ScreenSaverFNA
 
             foreach (var flake in snowflakes)
             {
-                flake.Y += flake.Speed * AppConstants.TargetFPS * elapsedSeconds;
+                flake.Y += flake.Speed * AppConstants.TargetFps * elapsedSeconds;
 
                 if (flake.Y > viewPort.Height + AppConstants.SnowflakeDestroyThreshold)
                 {
@@ -102,16 +105,13 @@ namespace ScreenSaverFNA
 
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
 
-            if (backgroundTexture != null)
-            {
-                spriteBatch.Draw(backgroundTexture, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), Color.White);
-            }
+            spriteBatch.Draw(backgroundTexture, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), Color.White);
 
             foreach (var flake in snowflakes)
             {
-                Texture2D img = snowflakeTextures[flake.ImageIndex];
-                Vector2 position = new Vector2(flake.X, flake.Y);
-                Vector2 origin = new Vector2(img.Width / 2f, img.Height / 2f);
+                var img = snowflakeTextures[flake.ImageIndex];
+                var position = new Vector2(flake.X, flake.Y);
+                var origin = new Vector2(img.Width / 2f, img.Height / 2f);
                 spriteBatch.Draw(img, position, null, Color.White, 0f, origin, flake.Scale, SpriteEffects.None, 0f);
             }
 
